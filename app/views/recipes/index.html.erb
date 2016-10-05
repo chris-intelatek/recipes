@@ -2,36 +2,31 @@
 
 <h1>Recipes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Ingredients</th>
-      <th>Author</th>
-      <th>Category</th>
-      <th>Directions</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.title %></td>
-        <td><%= recipe.ingredients %></td>
-        <td><%= recipe.author %></td>
-        <td><%= recipe.category %></td>
-        <td><%= recipe.directions %></td>
-        <td><%= recipe.notes %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        <%= link_to recipe.title, recipe %>
+
+        </div>
+        
+        <div class="panel-body">
+         By <%= link_to recipe.author %> <br>
+          <i>Posted <%= recipe.created_at.strftime('%m/%d/%Y at %I:%M%p') %></i>
+          <p>Ingredients: <%= recipe.ingredients[0..250] %>...[<%= link_to "Read More", recipe %>]</p>
+        </div>
+        <div class="panel-footer">
+          <%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-warning" %>
+          <%= link_to "Delete", recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+ 
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-default" %>
+
