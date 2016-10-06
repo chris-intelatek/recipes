@@ -20,6 +20,25 @@
     
   </div>
 
+<div><%= render "comments/form" %></div>
+
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h4>Comments</h4>
+    </div>
+    <% @recipe.comments.each do |comment| %>
+      <div class="panel-body">
+
+        <p><%= comment.comment_entry %></p>
+        <p>Created on <%= comment.created_at.strftime("%d/%m/%y") %> at <%= comment.created_at.strftime("%I:%M %p") %></p>
+        <p>Updated on <%= comment.updated_at.strftime("%d/%m/%y") %> at <%= comment.updated_at.strftime("%I:%M %p") %></p>
 
 
-  <%= link_to 'Back', recipes_path, class: "btn btn-primary" %>
+          <%= link_to "Edit Comment", edit_recipe_comment_path(@recipe, comment) %> |
+
+
+      </div>
+    <% end %>
+  </div>
+
+<%= link_to 'Back', recipes_path, class: "btn btn-primary" %>
