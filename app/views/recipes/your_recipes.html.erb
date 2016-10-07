@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Recipes</h1>
+<h1>Your Recipes</h1>
 
   <div class="row">
-    <% @recipes.each do |recipe| %>
+    <% current_user.recipes.each do |recipe| %>
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -12,26 +10,19 @@
         </div>
         
         <div class="panel-body">
-         By <%= link_to recipe.user.username, user_recipes_path(id: recipe.user.id) %> <br>
+         By <%= recipe.user.username %> <br>
           <i>Posted <%= recipe.created_at.strftime('%m/%d/%Y at %I:%M%p') %></i>
-          <p>Ingredients: <%= recipe.ingredients[0..250] %>...[<%= link_to "Read More", recipe %>]</p>
+          <p><%= recipe.ingredients[0..250] %>...[<%= link_to "Read More", recipe %>]</p>
         </div>
+
         <% if current_user.id == recipe.user.id %>
         <div class="panel-footer">
           <%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-warning" %>
           <%= link_to "Delete", recipe, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
         </div>
         <% end %>
+    
       </div>
     </div>
     <% end %>
   </div>
- 
-
-<br>
-
-<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-default" %>
-
-
-
- 

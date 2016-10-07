@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   end
   
   root "recipes#index"
+  get 'profile/user_page'
   
-  get "your_posts" => "blogposts#your_posts"
-  get "user_posts" => "blogposts#user_posts"
+  get "your_recipes" => "recipes#your_recipes"
+  get "user_recipes" => "recipes#user_recipes"
   
 end

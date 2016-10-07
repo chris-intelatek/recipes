@@ -31,8 +31,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Another action</a></li>
+        <li><%= link_to "All Recipes", root_path %></li>
+        <li><%= link_to "Your Recipes", your_recipes_path %></li>
+      
 
       </ul>
       <form class="navbar-form navbar-left">
@@ -43,22 +44,18 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Post a Recipe", new_recipe_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-          </ul>
-        </li>
+         <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-
-<%= yield %>
+<div class="container">
+    
+    <%= yield %>
+</div>
 
 </body>
 </html>

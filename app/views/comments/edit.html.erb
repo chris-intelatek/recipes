@@ -1,4 +1,4 @@
-<%= form_for([@blog_post, @comment], url: blog_post_comment_path) do |f| %>
+<%= form_for([@recipe, @comment], url: recipe_comment_path) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -20,7 +20,7 @@
     <%= f.text_field :author, class: "form-control", placeholder: "author" %>
   </div>
   <div class="field cant-see-me">
-    <%= f.number_field :blog_post_id, value: @blog_post.id %>
+    <%= f.number_field :recipe_id, value: @recipe.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
