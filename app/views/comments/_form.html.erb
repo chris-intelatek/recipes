@@ -16,13 +16,13 @@
     <%= f.text_area :comment_entry, class: "form-control", placeholder: "Comment", rows: 5 %>
   </div>
   <div class="form-group">
-    <%= f.label :author, class:"sr-only" %><br>
-    <%= f.text_field :author, class: "form-control", placeholder: "Author" %>
+    <%= f.label :user_id, class:"sr-only" %><br>
+    <%= f.text_field :user_id, class: "form-control", placeholder: "Author" %>
   </div>
   
-    <div class="field cant-see-me">
+    <div class="cant-see-me">
     <%= f.number_field :recipe_id, value: @recipe.id %>
-
+    <%= f.number_field :user_id, value: current_user.id %>
   </div>
   
   
