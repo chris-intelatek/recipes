@@ -25,10 +25,18 @@
 
   <div class="panel panel-default">
     <div class="panel-header">
+      
       <h4>Comments</h4>
     </div>
     <% @recipe.comments.each do |comment| %>
       <div class="panel-body">
+
+
+      <strong>Rating:</strong>
+        <%= "#{comment.rating}".to_i.times do |rank| %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+
 
         <p><%= comment.comment_entry %></p>
         <p>Created on <%= comment.created_at.strftime("%d/%m/%y") %> at <%= comment.created_at.strftime("%I:%M %p") %></p>
