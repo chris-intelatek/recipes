@@ -5,6 +5,10 @@
       <%= @recipe.title %>
     </div>
     <div class="panel-body">
+      <p>
+        <% if @recipe.avatar_file_name != nil %>
+          <%= image_tag @recipe.avatar.url(:medium), class: "img-responsive" %></p>
+        <% end %>
       <p>Posted by: <%= link_to @recipe.user.username, user_recipes_path(id: @recipe.user.id)%></p>
       <p>Category: <%= @recipe.category %></p>
       <p>Recipe notes: <%= @recipe.notes %></p>

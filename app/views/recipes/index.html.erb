@@ -1,4 +1,17 @@
+<div class="hero-unit">
+ 
+              <br><br><br><br><br><br><br>
+              <div class="container">
+              <center><h1>Make Something Delicious</h1></center>
+              <center><h2>Find a recipe on almost anything you could want and become the chef you've always wanted to be.</h2></center>
+              </div>
+ 
+   </div>
+
+
 <p id="notice"><%= notice %></p>
+
+</div class="container-fluid">
 
 <h1>Recipes</h1>
 
@@ -7,11 +20,14 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-        <%= link_to recipe.title, recipe %>
+        <h4><%= link_to recipe.title, recipe %></h4>
 
         </div>
         
         <div class="panel-body">
+        <% if recipe.avatar_file_name != nil %>
+          <%= image_tag recipe.avatar.url(:medium), class: "img-rounded" %></p>
+        <% end %>
          By <%= link_to recipe.user.username, user_recipes_path(id: recipe.user.id) %> <br>
           <i>Posted <%= recipe.created_at.strftime('%m/%d/%Y at %I:%M%p') %></i>
           <p>Ingredients: <%= recipe.ingredients[0..250] %>...[<%= link_to "Read More", recipe %>]</p>
@@ -25,9 +41,10 @@
       </div>
     </div>
     <% end %>
+    </div>
+    <%= link_to 'New Recipe', new_recipe_path, class: "btn btn-default" %>
   </div>
  
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-default" %>
