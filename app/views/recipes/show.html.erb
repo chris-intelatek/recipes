@@ -1,3 +1,5 @@
+<div class="container">
+  
 <p id="notice"><%= notice %></p>
 
   <div class="panel panel-primary">
@@ -35,15 +37,15 @@
     <% @recipe.comments.each do |comment| %>
       <div class="panel-body">
 
-
-      <strong>Rating:</strong>
-        <%= "#{comment.rating}".to_i.times do |rank| %>
-          <span class="glyphicon glyphicon-star"></span>
-        <% end %>
-
+        <div id="rated">
+          <strong>Rating:</strong>
+          <%= "#{comment.rating}".to_i.times do |rank| %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        <div>
 
         <p><%= comment.comment_entry %></p>
-        <p>Created on <%= comment.created_at.strftime("%d/%m/%y") %> at <%= comment.created_at.strftime("%I:%M %p") %></p>
+        <p>Created on <%= comment.created_at.strftime("%m/%d/%y") %> at <%= comment.created_at.strftime("%I:%M %p") %></p>
         
       </div>
 
@@ -59,3 +61,5 @@
   </div>
 
 <%= link_to 'Back', recipes_path, class: "btn btn-primary" %>
+
+</div>

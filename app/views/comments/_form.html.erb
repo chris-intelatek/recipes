@@ -14,15 +14,37 @@
 
 
 
+    <script>
+      $(document).ready(function(){
+          $("#btn1").hover(function(){
+              $("#comment_rating").val("1");
+          });
+          $("#btn2").hover(function(){
+              $("#comment_rating").val("2");
+          });
+      
+          $("#btn3").hover(function(){
+              $("#comment_rating").val("3");
+          });
+          $("#btn4").hover(function(){
+              $("#comment_rating").val("4");
+          });
+          $("#btn5").hover(function(){
+              $("#comment_rating").val("5");
+          });
+      });
+    </script>
 
 
-
-  <div class="field">
-    <%= f.select :rating,["1","2","3","4","5"], {:include_blank => 'Rating'}, class: "form-control" %><br />
+  <div id="rating">
+    <strong>Rate it:</strong>
+    <div class="glyphicon glyphicon-star-empty" id="btn1"></div>
+    <div class="glyphicon glyphicon-star-empty" id="btn2"></div>
+    <div class="glyphicon glyphicon-star-empty" id="btn3"></div>
+    <div class="glyphicon glyphicon-star-empty" id="btn4"></div>
+    <div class="glyphicon glyphicon-star-empty" id="btn5"></div>
+    <%= f.text_field :rating, size:"1", class:"no-lines" %>
   </div>
-
-<hr>
-
 
   <div class="form-group">
     <%= f.label :comment_entry, class:"sr-only" %><br>

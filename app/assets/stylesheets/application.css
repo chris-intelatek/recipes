@@ -16,7 +16,7 @@
 
 
 .cant-see-me {
-display: none;
+    display: none;
 }
 
 .container {
@@ -24,7 +24,6 @@ display: none;
 	margin-bottom: 25px;
 	padding-bottom: 10px;
 	border-radius: 10px;
-
 }
 
 
@@ -40,8 +39,8 @@ display: none;
     background-size:cover;
     background-color: #EEEEEE;
     height:450px;
-  
   }
+  
 .hero-unit h1 {
     color: #FFFFFF;
     font-size: 60px;
@@ -49,10 +48,27 @@ display: none;
     line-height: 1;
     margin-bottom: 0;
 }
+
 .hero-unit h2 {
     font-size: 25px;
     color: #FFFFFF;
-   
 }
-.fill{width:100%;height:350px;background-position:center;background-size:cover;
+
+.no-lines {
+    border: 0;
+    width: 20px;
+    background-color: white;
+}
+
+#rating .glyphicon:hover {
+    color: yellow;
+}
+
+#rated .glyphicon {
+    color: orange;
+}
+
+.navbar-brand {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 36px;
 }
